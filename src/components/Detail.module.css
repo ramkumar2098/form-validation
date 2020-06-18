@@ -2,6 +2,11 @@
   margin-bottom: 0.4rem;
 }
 
+.input {
+  height: 22px;
+  margin-right: 0.2rem;
+}
+
 .input:focus {
   outline: none;
   border: 2px solid #6db7ff;
@@ -20,7 +25,7 @@
 .detail {
   display: grid;
   grid-template-columns: 10rem 12rem 2rem;
-  grid-template-rows: 1fr 1fr;
+  grid-template-rows: 0fr 1fr;
   grid-template-areas:
     '. . .'
     '. error error';
@@ -28,4 +33,23 @@
 
 .error {
   grid-area: error;
+}
+
+@media (max-width: 450px) {
+  .detail {
+    grid-template-columns: 12rem 2rem;
+    grid-template-rows: 0fr 1.5rem 1fr;
+    grid-template-areas:
+      'label label label'
+      'input input .'
+      'error error error';
+  }
+
+  .label {
+    grid-area: label;
+  }
+
+  .input {
+    grid-area: input;
+  }
 }
